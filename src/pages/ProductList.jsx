@@ -8,6 +8,8 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import SearchBar from "../components/SearchBar";
 import CategoryFilter from "../components/CategoryFilter";
 import SortFilter from "../components/SortFilter";
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -141,12 +143,12 @@ export const ProductList = () => {
   const handleAddToCart = (product) => {
     
     dispatch(addToCart(product));
-    alert(`Added "${product.product_name}" to the cart!`);
+    toast.success(`Added "${product.product_name}" to the cart!`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      
+       <ToastContainer /> 
       <div className="bg-gray-300 shadow-lg p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">Product Explorer</h1>
         <div className="relative">
